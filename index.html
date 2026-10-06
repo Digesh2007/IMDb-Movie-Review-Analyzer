@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ef">
+  <title>IMDb Review Analyzer | PPS 1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles-previous.css?v=restore">
+</head>
+<body>
+  <aside class="sidebar" aria-label="Main navigation">
+    <a class="brand" href="#overview" aria-label="IMDb Review Analyzer home">
+      <span class="brand-mark" aria-hidden="true">IR</span>
+      <span class="brand-name">IMDb Review<br>Analyzer</span>
+    </a>
+    <div class="side-caption">WORKSPACE</div>
+    <nav class="side-nav">
+      <a class="nav-link is-active" href="#overview" data-view="overview"><span class="nav-icon">◫</span>Overview</a>
+      <a class="nav-link" href="#dataset" data-view="dataset"><span class="nav-icon">▤</span>Dataset</a>
+      <a class="nav-link" href="#cleaning" data-view="cleaning"><span class="nav-icon">⌁</span>Data cleaning</a>
+      <a class="nav-link" href="#report" data-view="report"><span class="nav-icon">▧</span>Project notes</a>
+    </nav>
+    <div class="side-bottom">
+      <div class="phase-label"><span class="phase-dot"></span> PPS 1 <span class="phase-divider">/</span> DATA PREPARATION</div>
+      <div class="side-footnote">Sentiment models arrive<br>in the next project phase.</div>
+      <div class="sidebar-rule"></div>
+      <div class="side-user"><div class="avatar">P1</div><div><strong>College project</strong><small>Local workspace</small></div></div>
+    </div>
+  </aside>
+
+  <main class="main-shell">
+    <header class="topbar">
+      <div class="breadcrumb"><span>PROJECT</span><b>/</b><strong id="breadcrumb-current">OVERVIEW</strong></div>
+      <div class="topbar-right"><span class="live-dot"></span><span>LOCAL WORKSPACE</span><span class="topbar-separator"></span><span class="date-stamp">PPS 1 · 2026</span></div>
+    </header>
+
+    <section class="view is-visible" id="view-overview" aria-labelledby="page-title">
+      <div class="page-heading">
+        <div>
+          <p class="eyebrow">MOVIE REVIEW DATA · PPS 1</p>
+          <h1 id="page-title">IMDb Review Analyzer</h1>
+          <p class="heading-copy">Collect responsibly. Prepare carefully. Keep every record real.</p>
+        </div>
+        <a class="button button-dark" href="#dataset" data-view="dataset"><span aria-hidden="true">＋</span> Add a dataset</a>
+      </div>
+
+      <div class="access-banner" role="status">
+        <div class="access-icon" aria-hidden="true">!</div>
+        <div class="access-copy"><strong>IMDb collection is currently paused</strong><span>IMDb's published robots policy disallows general-agent access and requires written permission for automated collection. This workspace will not request movie or review pages.</span></div>
+        <a href="https://www.imdb.com/robots.txt" target="_blank" rel="noreferrer">View policy <span aria-hidden="true">↗</span></a>
+        <img class="cinema-thumb" src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&amp;fit=crop&amp;w=480&amp;q=80" alt="Rows of seats in a movie theater" referrerpolicy="no-referrer">
+      </div>
+
+      <div class="metric-grid" aria-label="Dataset summary">
+        <article class="metric"><div class="metric-top"><span>MOVIES</span><span class="metric-icon">▣</span></div><strong id="movie-count">—</strong><small>Unavailable until permitted data is loaded</small></article>
+        <article class="metric"><div class="metric-top"><span>RAW REVIEWS</span><span class="metric-icon">▤</span></div><strong id="raw-count">—</strong><small>Original records, unchanged</small></article>
+        <article class="metric"><div class="metric-top"><span>CLEAN REVIEWS</span><span class="metric-icon">✳</span></div><strong id="clean-count">—</strong><small>After text and duplicate checks</small></article>
+        <article class="metric metric-accent"><div class="metric-top"><span>REMOVED DUPLICATES</span><span class="metric-icon">⟲</span></div><strong id="duplicate-count">—</strong><small>Calculated from loaded records</small></article>
+      </div>
+
+      <div class="section-head"><div><p class="eyebrow">PPS 1 WORKFLOW</p><h2>From page to prepared data</h2></div><span class="section-note">CURRENT PHASE · DATA COLLECTION & CLEANING</span></div>
+      <div class="workflow" aria-label="PPS 1 workflow">
+        <div class="workflow-step"><span class="step-number">01</span><span class="step-icon">◎</span><strong>Source check</strong><small>Permission &amp; access</small><i class="step-line"></i></div>
+        <div class="workflow-step"><span class="step-number">02</span><span class="step-icon">▤</span><strong>Raw dataset</strong><small>Original records</small><i class="step-line"></i></div>
+        <div class="workflow-step"><span class="step-number">03</span><span class="step-icon">⌁</span><strong>Data cleaning</strong><small>Text &amp; duplicates</small><i class="step-line"></i></div>
+        <div class="workflow-step workflow-future"><span class="step-number">04</span><span class="step-icon">↗</span><strong>Prepared output</strong><small>CSV export</small><i class="step-line"></i></div>
+      </div>
+
+      <div class="content-grid">
+        <section class="panel dataset-panel" id="recent-panel">
+          <div class="panel-heading"><div><p class="eyebrow">LATEST RECORDS</p><h2>Review preview</h2></div><a class="text-link" href="#dataset" data-view="dataset">Open dataset <span>→</span></a></div>
+          <div class="table-wrap"><table><thead><tr><th>MOVIE</th><th>REVIEW TITLE</th><th>RATING</th><th>DATE</th></tr></thead><tbody id="review-table-body"><tr class="empty-row"><td colspan="4"><div class="empty-mark">▤</div><strong>No records loaded</strong><span>Add a genuine raw CSV dataset to inspect its reviews.</span></td></tr></tbody></table></div>
+        </section>
+        <aside class="panel phase-panel">
+          <div class="phase-card-head"><span class="phase-kicker">NEXT CHAPTER</span><span class="lock-mark" aria-label="Not available in PPS 1">◌</span></div>
+          <h2>Sentiment analysis</h2>
+          <p>Text preprocessing, TF-IDF and model comparison belong to PPS 2. No model scores or review predictions are available in this phase.</p>
+          <div class="model-chips"><span>Logistic Regression</span><span>Naive Bayes</span><span>SVM</span></div>
+          <div class="phase-card-foot"><span class="future-dot"></span> PLANNED FOR PPS 2</div>
+        </aside>
+      </div>
+      <footer class="page-footer"><span>IMDb REVIEW ANALYZER <b>·</b> PPS 1</span><span>Only real, permitted data. No generated examples.</span></footer>
+    </section>
+
+    <section class="view" id="view-dataset" aria-labelledby="dataset-title">
+      <div class="page-heading compact-heading"><div><p class="eyebrow">PPS 1 · RAW DATA</p><h1 id="dataset-title">Dataset</h1><p class="heading-copy">Inspect records from a genuine CSV file. Nothing is prefilled or fabricated.</p></div><label class="button button-dark upload-button"><span aria-hidden="true">↑</span> Load raw CSV<input id="csv-file" type="file" accept=".csv,text/csv" hidden></label></div>
+      <div class="access-banner slim-banner"><div class="access-icon" aria-hidden="true">!</div><div class="access-copy"><strong>Use an authorized dataset only</strong><span>IMDb pages are not fetched by this website. Import an existing CSV only if its collection and use are permitted.</span></div></div>
+      <div class="dataset-toolbar"><div><strong id="dataset-summary">No dataset loaded</strong><span id="dataset-filename">Choose a raw CSV to begin.</span></div><div class="toolbar-actions"><button class="button button-outline" id="download-raw" disabled><span>↓</span> Export raw CSV</button><button class="button button-green" id="clean-data" disabled><span>✳</span> Clean records</button></div></div>
+      <div class="panel table-panel"><div class="table-wrap"><table><thead id="dataset-head"><tr><th>DATASET PREVIEW</th></tr></thead><tbody id="dataset-body"><tr class="empty-row"><td><div class="empty-mark">↑</div><strong>Your dataset will appear here</strong><span>CSV columns are read as provided. No sample reviews are added.</span></td></tr></tbody></table></div></div>
+      <div class="dataset-footnote"><span class="tiny-dot"></span> RAW AND CLEANED FILES REMAIN SEPARATE</div>
+    </section>
+
+    <section class="view" id="view-cleaning" aria-labelledby="cleaning-title">
+      <div class="page-heading compact-heading"><div><p class="eyebrow">PPS 1 · PROCESSING</p><h1 id="cleaning-title">Data cleaning</h1><p class="heading-copy">A transparent pass over the dataset you loaded. Every count comes from those rows.</p></div><button class="button button-green" id="clean-data-secondary" disabled><span>✳</span> Clean records</button></div>
+      <div class="cleaning-status panel"><div class="status-glyph">⌁</div><div><p class="eyebrow">CLEANING STATUS</p><h2 id="cleaning-status-title">Waiting for a raw dataset</h2><p id="cleaning-status-copy">Load a permitted CSV in Dataset to see validation results and create a cleaned export.</p></div></div>
+      <div class="section-head cleaning-head"><div><p class="eyebrow">PROCESSING STEPS</p><h2>What the cleaning pass checks</h2></div><span class="section-note">NO SENTIMENT LABELS OR MODEL TRAINING</span></div>
+      <div class="cleaning-list">
+        <article><span class="clean-index">01</span><div><strong>Remove exact duplicates</strong><p>Identical rows are removed; duplicate reviews are compared by movie, title and review text.</p></div><span class="clean-result" id="exact-duplicates">WAITING</span></article>
+        <article><span class="clean-index">02</span><div><strong>Normalize review text</strong><p>HTML tags are stripped and repeated whitespace and line breaks are reduced.</p></div><span class="clean-result" id="text-cleaned">WAITING</span></article>
+        <article><span class="clean-index">03</span><div><strong>Handle missing review text</strong><p>Rows without usable review text are removed; optional missing fields are preserved.</p></div><span class="clean-result" id="missing-text">WAITING</span></article>
+        <article><span class="clean-index">04</span><div><strong>Validate numbers and dates</strong><p>Years and ratings are converted where possible. Ratings outside 0–10 are marked missing, not silently changed.</p></div><span class="clean-result" id="invalid-ratings">WAITING</span></article>
+      </div>
+      <div class="export-row"><div><strong>Cleaned dataset</strong><span id="export-note">The cleaned CSV is available after processing a loaded dataset.</span></div><button class="button button-dark" id="download-cleaned" disabled><span>↓</span> Download cleaned CSV</button></div>
+    </section>
+
+    <section class="view" id="view-report" aria-labelledby="report-title">
+      <div class="page-heading compact-heading"><div><p class="eyebrow">PPS 1 · PROJECT NOTES</p><h1 id="report-title">Project notes</h1><p class="heading-copy">Scope, source policy and the next steps in the project.</p></div></div>
+      <div class="notes-grid">
+        <article class="panel note-panel note-wide"><p class="eyebrow">DATA SOURCE</p><h2>IMDb Top Movies</h2><p>The planned source is IMDb's publicly listed Top Movies chart and the review pages that can be accessed publicly and permissibly. The scraper is not run by this website. Current published rules disallow general-agent access and require prior written permission for automated collection.</p><a class="text-link" href="https://www.imdb.com/robots.txt" target="_blank" rel="noreferrer">Read robots.txt ↗</a></article>
+        <article class="panel note-panel"><p class="eyebrow">PPS 1</p><h2>Dataset preparation</h2><ul><li>Collect only when permitted</li><li>Keep raw data unchanged</li><li>Clean and validate a separate copy</li><li>Export actual rows to CSV</li></ul></article>
+        <article class="panel note-panel note-next"><p class="eyebrow">PPS 2 · LATER</p><h2>Sentiment analysis</h2><p>Once a genuine cleaned dataset is available, PPS 2 can add text preprocessing, TF-IDF, model evaluation and review prediction. Results must come from actual training.</p><span class="phase-card-foot"><span class="future-dot"></span> NOT BUILT IN THIS PHASE</span></article>
+      </div>
+      <div class="data-fields"><div class="section-head"><div><p class="eyebrow">DATA DICTIONARY</p><h2>Review record fields</h2></div></div><div class="field-grid"><span><b>movie_name</b> Movie title</span><span><b>movie_year</b> Release year</span><span><b>movie_url</b> Public movie URL</span><span><b>movie_rating</b> IMDb rating</span><span><b>reviewer_username</b> Public display name, if available</span><span><b>review_title</b> Review headline</span><span><b>review_text</b> Main review text</span><span><b>review_rating</b> Reviewer's score</span><span><b>review_date</b> Review date</span><span><b>review_url</b> Public review URL</span><span><b>scraped_at</b> Collection timestamp</span></div></div>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="assets/app.js?v=restore"></script>
+</body>
+</html>
